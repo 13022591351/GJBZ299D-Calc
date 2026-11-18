@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#223244"/>
+      <stop offset="1" stop-color="#0f1722"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#6c7c8f"/>
+      <stop offset="0.14" stop-color="#b8c6d6"/>
+      <stop offset="0.52" stop-color="#7c8b9e"/>
+      <stop offset="1" stop-color="#54687d"/>
+    </linearGradient>
+    <linearGradient id="pinH" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#6c7c8f"/>
+      <stop offset="0.5" stop-color="#b4c2d1"/>
+      <stop offset="1" stop-color="#5c7085"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#273749"/>
+      <stop offset="1" stop-color="#172230"/>
+    </linearGradient>
+    <linearGradient id="curve" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#68e3d6"/>
+      <stop offset="1" stop-color="#4daaff"/>
+    </linearGradient>
+    <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#68e3d6" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#4daaff" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#tile)"/>
+  <rect x="28" y="28" width="456" height="456" rx="98" fill="none" stroke="#35485e" stroke-width="2"/>
+
+  <!-- 16 QFP metallic leads -->
+  <g fill="url(#metal)">
+    <rect x="164" y="60" width="16" height="40" rx="5"/>
+    <rect x="220" y="60" width="16" height="40" rx="5"/>
+    <rect x="276" y="60" width="16" height="40" rx="5"/>
+    <rect x="332" y="60" width="16" height="40" rx="5"/>
+    <rect x="164" y="412" width="16" height="40" rx="5"/>
+    <rect x="220" y="412" width="16" height="40" rx="5"/>
+    <rect x="276" y="412" width="16" height="40" rx="5"/>
+    <rect x="332" y="412" width="16" height="40" rx="5"/>
+  </g>
+  <g fill="url(#pinH)">
+    <rect x="60" y="164" width="40" height="16" rx="5"/>
+    <rect x="60" y="220" width="40" height="16" rx="5"/>
+    <rect x="60" y="276" width="40" height="16" rx="5"/>
+    <rect x="60" y="332" width="40" height="16" rx="5"/>
+    <rect x="412" y="164" width="40" height="16" rx="5"/>
+    <rect x="412" y="220" width="40" height="16" rx="5"/>
+    <rect x="412" y="276" width="40" height="16" rx="5"/>
+    <rect x="412" y="332" width="40" height="16" rx="5"/>
+  </g>
+
+  <!-- IC package bezel & body -->
+  <rect x="96" y="96" width="320" height="320" rx="40" fill="url(#metal)"/>
+  <rect x="104" y="104" width="304" height="304" rx="34" fill="url(#body)"/>
+
+  <!-- Silicon die telemetry cavity -->
+  <rect x="124" y="124" width="264" height="264" rx="22" fill="#0b1520" stroke="#5d748c" stroke-width="3"/>
+
+  <!-- Subtle coordinate grid -->
+  <path d="M144 186H368M144 234H368M144 282H368M144 330H368M190 144V336M248 144V336M306 144V336"
+        fill="none" stroke="#1b2f42" stroke-width="2"/>
+
+  <!-- Pin-1 orientation marker -->
+  <circle cx="150" cy="150" r="7" fill="#9fb2c4"/>
+
+  <!-- Geometric amber lambda symbol -->
+  <path d="M328 144L362 198M345 171L327 198"
+        fill="none" stroke="#ebb866" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Exponential reliability area & curve R(t) -->
+  <path d="M148 186C192 256 256 300 364 318L364 332L148 332Z" fill="url(#curveFill)"/>
+  <path d="M148 186C192 256 256 300 364 318"
+        fill="none" stroke="url(#curve)" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- Operating point indicator directly on curve -->
+  <circle cx="232" cy="271.5" r="11" fill="#0b1520" stroke="#73c991" stroke-width="6"/>
+
+  <!-- Bottom instrument status strip -->
+  <path d="M140 344H372" stroke="#2c4156" stroke-width="2"/>
+  <rect x="148" y="355" width="48" height="10" rx="5" fill="#73c991"/>
+  <path d="M212 360H298" stroke="#617890" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="358" cy="360" r="6" fill="#68d9ce"/>
+</svg>

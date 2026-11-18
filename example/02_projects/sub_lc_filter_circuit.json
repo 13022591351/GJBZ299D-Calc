@@ -1,0 +1,120 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "LC滤波与调理子电路",
+    "notes": "用于国产LC滤波器（组成法）及国产压电陀螺后部电路的关联工程快照。",
+    "components": [
+      {
+        "name": "L_F1, L_F2 · 滤波扼流电感",
+        "model": "国产电感器",
+        "quantity": 2,
+        "parameters": {
+          "kind": "固定电感器",
+          "insulation_class": "F",
+          "hotspot_temperature_C": 70.0,
+          "quality": "B1"
+        },
+        "reference": "LC滤波器串联电感（2只）；F级绝缘热点70℃。",
+        "identifier": "f56ee35d-f0bc-48a8-b013-31b2047bf83e",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "C_F1~C_F3 · 谐振旁路电容",
+        "model": "国产1类瓷介电容器",
+        "quantity": 3,
+        "parameters": {
+          "capacitance_uF": 0.01,
+          "mounting": "片式",
+          "quality": "A2",
+          "stress_ratio": 0.4
+        },
+        "reference": "LC滤波器1类瓷介电容（3只）；电压应力比0.4。",
+        "identifier": "6dab06bd-3911-48f4-a709-4f8655eb3b44",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "R_D1, R_D2 · 阻尼金属膜电阻",
+        "model": "国产片式膜电阻器",
+        "quantity": 2,
+        "parameters": {
+          "resistance_ohm": 100.0,
+          "film": "薄膜",
+          "quality": "A1P"
+        },
+        "reference": "LC滤波阻尼匹配电阻（2只）。",
+        "identifier": "8196680e-07e9-4415-8d03-b30a671fb759",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      }
+    ],
+    "conditions": [
+      {
+        "name": "地面良好 25℃",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "6d3285d6-0f92-43ee-bda5-e6363dcfcd33",
+        "enabled": true
+      },
+      {
+        "name": "一般固定 55℃",
+        "environment": "GF1",
+        "ambient_temperature_C": 55,
+        "identifier": "cffd45b3-3311-4970-a1dd-1877e8dab7c0",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "working",
+    "analysis": {}
+  }
+}

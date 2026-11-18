@@ -1,0 +1,1237 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "综合工作应力法示例工程（电源伺服控制板）",
+    "notes": "涵盖第5章与附录C多品类国产/进口器件、变量电应力表达式、式(2)结温与5.1.1.3门数派生、电连接器表288/289/292、工作/非工作双状态以及附录A/D/E/F四项专项分析。",
+    "components": [
+      {
+        "name": "U1 · 主控数字逻辑FPGA",
+        "model": "国产普通数字集成电路",
+        "quantity": 1,
+        "parameters": {
+          "technology": "MOS",
+          "package": "密封-表面安装(LCC/SO和其他)封装",
+          "lead_count": 40,
+          "quality": "A4",
+          "maturity": "稳定生产",
+          "supply_voltage_V": 5
+        },
+        "reference": "5.1.2 数字IC；等效门数由5.1.1.3晶体管数换算，结温由式(2)表24/25派生。",
+        "identifier": "4c013c2d-1b14-43f0-a1dd-9e37cd51e49f",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {
+          "gate_count": {
+            "kind": "gate_count",
+            "inputs": {
+              "mode": "transistors",
+              "technology": "CMOS",
+              "transistors": 3750
+            }
+          },
+          "junction_temperature_C": {
+            "kind": "junction_temperature",
+            "inputs": {
+              "case_source": "table24",
+              "resistance_source": "table25",
+              "package": "密封器件 / 芯片载体(LCC)封装",
+              "power_W": 0.35
+            }
+          }
+        },
+        "profiles": {
+          "nonoperating": {
+            "model": "国产数字集成电路（非工作详细）",
+            "parameters": {
+              "technology": "MOS",
+              "package": "密封 / 表面安装 (PLCC、 LCC、SO 和其他) 封装",
+              "lead_count": 40,
+              "quality": "A4",
+              "maturity": "符合相应的标准或技术 条件，已稳定生产的产品",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {
+              "gate_count": {
+                "kind": "gate_count",
+                "inputs": {
+                  "mode": "transistors",
+                  "technology": "CMOS",
+                  "transistors": 3750
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "U2 · 精密模拟运放",
+        "model": "国产模拟集成电路",
+        "quantity": 1,
+        "parameters": {
+          "complexity": 100,
+          "quality": "A4",
+          "junction_temperature_C": 47.6,
+          "supply_voltage_V": 5,
+          "package": "密封-双列直插(DIP)封装",
+          "lead_count": 14,
+          "maturity": "符合相应的标准或技术条件，已稳定生产的产品"
+        },
+        "reference": "5.1.2 模拟IC；非表列结温 Tj=47.6℃ 向上归入表18下一档位 49℃。",
+        "identifier": "f04ecf7f-406a-4b52-b48d-9d3fa34ef256",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产模拟集成电路（非工作详细）",
+            "parameters": {
+              "transistor_count": 100,
+              "package": "密封 / 双列直插 (DIP) 封装",
+              "lead_count": 14,
+              "quality": "A4",
+              "maturity": "符合相应的标准或技术 条件，已稳定生产的产品",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "U3 · 进口协处理器",
+        "model": "进口微处理器",
+        "quantity": 1,
+        "parameters": {
+          "technology": "MOS",
+          "transistor_count": 50000,
+          "package": "密封－表面安装（PLCC/LCC/SO和其他）封装",
+          "lead_count": 64,
+          "quality": "B",
+          "junction_temperature_C": 65
+        },
+        "reference": "附录C.2.2.2 进口微处理器；非工作状态按经验已知率录入。",
+        "identifier": "0707f6b9-4530-4b32-9e5d-4a9881523b3e",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.0012
+              },
+              {
+                "environment": "GF1",
+                "ambient_temperature_C": 55,
+                "rate": 0.0038
+              },
+              {
+                "environment": "AIF",
+                "ambient_temperature_C": 70,
+                "rate": 0.0095
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "Q1 · 差分对双极双管",
+        "model": "国产双极型双管",
+        "quantity": 1,
+        "parameters": {
+          "kind": "开关晶体管",
+          "polarity": "NPN 型",
+          "structure": "双管 (匹配对)",
+          "application": "线性放大",
+          "quality": "A2",
+          "temperature_basis": "带散热片功率器件的管壳温度",
+          "case_temperature_C": 55.0,
+          "package_rated_power_W": 1.5,
+          "rated_power_1_W": 1.0,
+          "rated_power_2_W": 1.0,
+          "rated_temperature_C": 25.0,
+          "max_junction_temperature_C": 175.0,
+          "operating_power_1_W": 0.25,
+          "operating_power_2_W": 0.2,
+          "voltage_ratio_1": 0.3,
+          "voltage_ratio_2": 0.3
+        },
+        "reference": "5.3.5 式(24)双管热耦合模型；带散热片管壳温度 Tc=55℃；无对应B.2模型，非工作按经验率录入。",
+        "identifier": "6d8054b0-9d12-4510-9fb5-77c88a162785",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00045
+              },
+              {
+                "environment": "GF1",
+                "ambient_temperature_C": 55,
+                "rate": 0.0011
+              },
+              {
+                "environment": "AIF",
+                "ambient_temperature_C": 70,
+                "rate": 0.0024
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "Q2 · 功率MOSFET开关管",
+        "model": "国产硅场效应晶体管",
+        "quantity": 1,
+        "parameters": {
+          "kind": "MOS 型",
+          "structure": "单管",
+          "application": "开关",
+          "quality": "A3",
+          "rated_power_W": 12.0,
+          "rated_temperature_C": 25.0,
+          "max_junction_temperature_C": 175.0,
+          "temperature_basis": "带散热片功率器件的管壳温度",
+          "case_temperature_C": 50.0,
+          "operating_power_W": 2.5
+        },
+        "reference": "5.3.6 功率场效应管；带散热片管壳温度 Tc=50℃。",
+        "identifier": "424162ea-2827-4ab4-a692-d652a21916b1",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产晶体管（非工作详细）",
+            "parameters": {
+              "kind": "硅场效应晶体管",
+              "quality": "A3",
+              "cycle_rate": 1,
+              "rated_power_W": 12.0
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "D1 · 国产快恢复整流二极管",
+        "model": "国产普通二极管",
+        "quantity": 2,
+        "parameters": {
+          "kind": "整流二极管",
+          "quality": "A3",
+          "temperature_basis": "工作环境温度",
+          "rated_temperature_C": 25.0,
+          "max_junction_temperature_C": 150.0,
+          "operating_current_A": 0.8,
+          "rated_current_A": 3.0,
+          "voltage_ratio": 0.4,
+          "structure": "冶金键合"
+        },
+        "reference": "5.3.2 整流二极管；工作环境温度校正。",
+        "identifier": "61b01d1d-a142-4c37-a31a-f230299e925b",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产二极管（非工作详细）",
+            "parameters": {
+              "kind": "普通二极管 / 整流二极管",
+              "quality": "A3",
+              "cycle_rate": 1,
+              "temperature_basis": "非工作环境温度"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "D2 · 进口肖特基整流二极管",
+        "model": "进口普通二极管",
+        "quantity": 2,
+        "parameters": {
+          "kind": "整流二极管",
+          "quality": "JANTX",
+          "voltage_ratio": 0.4,
+          "current_ratio": 0.3
+        },
+        "reference": "附录C.2.4 进口二极管；GB@25℃ 触发30℃起表温度向上取整。",
+        "identifier": "ed1cd8a1-9f3a-46b9-94f2-28e48baa6569",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00012
+              },
+              {
+                "environment": "GF1",
+                "ambient_temperature_C": 55,
+                "rate": 0.00038
+              },
+              {
+                "environment": "AIF",
+                "ambient_temperature_C": 70,
+                "rate": 0.00095
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "C1~C4 · 1类瓷介NP0电容",
+        "model": "国产1类瓷介电容器",
+        "quantity": 4,
+        "parameters": {
+          "capacitance_uF": 0.0047,
+          "mounting": "片式",
+          "quality": "A1P",
+          "stress_ratio": 0.4
+        },
+        "reference": "5.9.4 1类瓷介电容器（4只）。",
+        "identifier": "e68c7b28-9d48-4254-9a1d-bffe669ad099",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电容器（非工作详细）",
+            "parameters": {
+              "kind": "瓷介电容器 / 1 类瓷介",
+              "quality": "A1P",
+              "mounting": "片式",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "C5, C6 · 2类瓷介X7R滤波电容",
+        "model": "国产2类瓷介电容器",
+        "quantity": 2,
+        "parameters": {
+          "capacitance_uF": 0.1,
+          "rated_temperature_C": 125,
+          "mounting": "片式",
+          "quality": "A1P",
+          "stress_ratio": 0.5
+        },
+        "reference": "5.9.5 2类瓷介电容器（125℃额定，2只）。",
+        "identifier": "f83965d6-5962-4c45-8b46-a1ada501f736",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电容器（非工作详细）",
+            "parameters": {
+              "kind": "瓷介电容器 / 2 类瓷介",
+              "quality": "A1P",
+              "mounting": "片式",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "C7, C8 · 进口铝电解储能电容",
+        "model": "进口电容器",
+        "quantity": 2,
+        "parameters": {
+          "kind": "铝电解",
+          "capacitance_uF": 100.0,
+          "mounting": "有引线",
+          "quality": "M",
+          "stress_ratio": 0.5
+        },
+        "reference": "附录C.2.10 进口铝电解电容；GB@25℃ 触发30℃起表温度向上取整。",
+        "identifier": "c6eb398a-9ece-4b4e-ba66-a71101903576",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00018
+              },
+              {
+                "environment": "GF1",
+                "ambient_temperature_C": 55,
+                "rate": 0.00052
+              },
+              {
+                "environment": "AIF",
+                "ambient_temperature_C": 70,
+                "rate": 0.0014
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "R1, R2 · 金属膜采样分压电阻",
+        "model": "国产金属膜电阻器",
+        "quantity": 2,
+        "parameters": {
+          "resistance_ohm": 4.7,
+          "rated_temperature_C": 125,
+          "quality": "A1P",
+          "stress_ratio": "Vbus*0.01/Pr"
+        },
+        "reference": "5.6.2 金属膜电阻器；变量应力表达式 Vbus*0.01/Pr=0.48 向上取档0.5。",
+        "identifier": "4dcdff72-fa06-4027-8fc3-e4b6fe755d3f",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {
+          "Pr": 0.25,
+          "Vbus": 12
+        },
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电阻器（非工作详细）",
+            "parameters": {
+              "kind": "金属膜",
+              "quality": "A1P",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "R3~R6 · 片式薄膜精密电阻",
+        "model": "国产片式膜电阻器",
+        "quantity": 4,
+        "parameters": {
+          "resistance_ohm": 10000.0,
+          "film": "薄膜",
+          "quality": "A1P"
+        },
+        "reference": "5.6.9 片式膜电阻器（4只）。",
+        "identifier": "0c47e41e-1d21-4755-bce9-5e94e9a0ca44",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电阻器（非工作详细）",
+            "parameters": {
+              "kind": "片式膜电阻器",
+              "quality": "A1P",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "R7 · 功率线绕限流电阻",
+        "model": "国产功率线绕电阻器",
+        "quantity": 1,
+        "parameters": {
+          "resistance_ohm": 10.0,
+          "quality": "A2",
+          "stress_ratio": "Pload/Pr_w"
+        },
+        "reference": "5.6.6 功率线绕电阻器；变量应力表达式 Pload/Pr_w=0.24 向上取档0.3。",
+        "identifier": "22fe96ab-f861-4bf2-a57c-1a69a8cadff6",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {
+          "Pload": 1.2,
+          "Pr_w": 5.0
+        },
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电阻器（非工作详细）",
+            "parameters": {
+              "kind": "功率线绕电阻器",
+              "quality": "A2",
+              "rated_power_W": 5.0,
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "R8 · 进口高压厚膜电阻",
+        "model": "进口电阻器",
+        "quantity": 1,
+        "parameters": {
+          "kind": "片式膜",
+          "resistance_ohm": 5620000.0,
+          "quality": "M",
+          "stress_ratio": 0.35
+        },
+        "reference": "附录C.2.7 进口电阻器；GB@25℃ 触发30℃起表温度向上取整。",
+        "identifier": "ae42f743-6e63-4cf7-aaea-59e91f845144",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 2.5e-05
+              },
+              {
+                "environment": "GF1",
+                "ambient_temperature_C": 55,
+                "rate": 8.2e-05
+              },
+              {
+                "environment": "AIF",
+                "ambient_temperature_C": 70,
+                "rate": 0.00022
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "L1 · 功率滤波固定电感",
+        "model": "国产电感器",
+        "quantity": 1,
+        "parameters": {
+          "kind": "固定电感器",
+          "insulation_class": "F",
+          "hotspot_temperature_C": 75.0,
+          "quality": "B1"
+        },
+        "reference": "5.10.2 国产电感器；F级绝缘热点温度 THS=75℃。",
+        "identifier": "6ffff584-124d-4ff3-b25a-9793b73566a1",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电感器（非工作详细）",
+            "parameters": {
+              "kind": "固定电感器",
+              "quality": "B1",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "T1 · 高频隔离驱动变压器",
+        "model": "国产变压器",
+        "quantity": 1,
+        "parameters": {
+          "kind": "电源变压器 大功率脉冲变压器",
+          "insulation_class": "F",
+          "hotspot_temperature_C": 80.0,
+          "quality": "A2"
+        },
+        "reference": "5.10.4 国产变压器；F级绝缘热点温度 THS=80℃。",
+        "identifier": "552f6f51-0247-422a-a94d-b3c9b8dac318",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产变压器（非工作详细）",
+            "parameters": {
+              "kind": "大功率脉冲变压器",
+              "quality": "A2",
+              "cycle_rate": 1
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "J1 · 低频矩形信号连接器（Ⅱ类120℃+实测温升+中间针数）",
+        "model": "国产电连接器",
+        "quantity": 1,
+        "parameters": {
+          "connector_type": "低频连接器",
+          "quality": "A1",
+          "counting_unit": "单个",
+          "contacts": 22,
+          "socket_structure": "绞线插针",
+          "mating_per_1000h": 100.0,
+          "material_class": "Ⅱ类",
+          "material_max_temperature_C": 120.0,
+          "temperature_method": "实际温升",
+          "temperature_rise_C": 10.0
+        },
+        "reference": "5.13 低频连接器；Ⅱ类绝缘最高120℃（表289合规），22针向上取档至25（表292），实际温升10℃。",
+        "identifier": "6dc69b64-4709-480c-b440-794e681b43bd",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电连接器（非工作详细）",
+            "parameters": {
+              "kind": "矩形连接器、印制电路板用连接器",
+              "quality": "A1"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "J2 · 低频电源连接器（Ⅰ类200℃+表288电流查表）",
+        "model": "国产电连接器",
+        "quantity": 1,
+        "parameters": {
+          "connector_type": "低频连接器",
+          "quality": "A2",
+          "counting_unit": "一对",
+          "contacts": 24,
+          "socket_structure": "簧片",
+          "mating_per_1000h": 10.0,
+          "material_class": "Ⅰ类",
+          "material_max_temperature_C": 200.0,
+          "temperature_method": "按接触件电流查表",
+          "contact_current_A": 2.5,
+          "contact_diameter": "1.5"
+        },
+        "reference": "5.13 低频连接器；Ⅰ类材料200℃（表289），接触电流2.5A向上取档至3A查表288温升。",
+        "identifier": "5926beef-27fc-4c6c-94b7-4cd2d1cb4e52",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电连接器（非工作详细）",
+            "parameters": {
+              "kind": "矩形连接器、印制电路板用连接器",
+              "quality": "A2"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "J3 · 射频同轴SMA插座",
+        "model": "国产电连接器",
+        "quantity": 1,
+        "parameters": {
+          "connector_type": "射频同轴连接器",
+          "quality": "A1",
+          "counting_unit": "插座",
+          "contacts": 1,
+          "socket_structure": "簧片",
+          "mating_per_1000h": 5.0
+        },
+        "reference": "5.13 射频同轴连接器；按插座(0.6)计量。",
+        "identifier": "fe70f8fe-8c30-4e2a-9d38-034ed6a78d6d",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电连接器（非工作详细）",
+            "parameters": {
+              "kind": "射频同轴连接器、圆形连接器",
+              "quality": "A1"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "K1 · 气密密封机电继电器",
+        "model": "国产机电继电器",
+        "quantity": 1,
+        "parameters": {
+          "rated_temperature_C": 125,
+          "load_type": "阻性",
+          "stress_ratio": 0.3,
+          "quality": "A2",
+          "contacts": 2,
+          "rated_current_A": 5.0,
+          "operations_per_hour": 2.0,
+          "design_operations_per_hour": 120.0,
+          "application": "中功率",
+          "structure": "平衡衔铁",
+          "enclosure": "气密性密封（漏率小于或等于1×10-3Pa·cm3/s）"
+        },
+        "reference": "5.11.1 机电继电器（125℃额定）。",
+        "identifier": "412dcfd1-39b7-4f81-bf58-f4fb3904dada",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产继电器（非工作详细）",
+            "parameters": {
+              "kind": "机电继电器 / 密封 / 熔焊工艺",
+              "quality": "A2"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "S1 · 面板复位按钮开关",
+        "model": "国产开关",
+        "quantity": 1,
+        "parameters": {
+          "switch_type": "按钮式",
+          "quality": "A2",
+          "active_contacts": 2,
+          "load_type": "阻性",
+          "stress_ratio": 0.25,
+          "operations_per_day": 8
+        },
+        "reference": "5.12 按钮开关。",
+        "identifier": "b7bdb910-349e-439d-a8bb-ee68f5bc2719",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产开关（非工作详细）",
+            "parameters": {
+              "kind": "按钮开关",
+              "quality": "A2"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "PCB1 · 6层伺服控制印制板",
+        "model": "国产印制板",
+        "quantity": 1,
+        "parameters": {
+          "plated_hole_count": 320,
+          "layer_count": 6,
+          "quality": "A1"
+        },
+        "reference": "5.15.1 式(75) 6层印制板，320个金属化孔。",
+        "identifier": "ff32ca51-2685-4d51-a753-3a97527fa5e6",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产印制板（非工作详细）",
+            "parameters": {
+              "plated_hole_count": 320,
+              "quality": "A1"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "SJ1 · 再流焊焊接点",
+        "model": "国产焊接点",
+        "quantity": 180,
+        "parameters": {
+          "kind": "再流焊",
+          "quality": "A"
+        },
+        "reference": "5.15.2 再流焊连接点（180点）。",
+        "identifier": "618cce94-ef5c-4e6c-a18e-a41b10bf1786",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产焊接点（非工作详细）",
+            "parameters": {
+              "kind": "再流焊"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "SMT1 · 整板表面贴装SMT互连",
+        "model": "国产SMT互连",
+        "quantity": 1,
+        "parameters": {
+          "connections": [
+            {
+              "distance_mm": 8.5,
+              "lead_structure": "鸥翼型引线",
+              "cte_method": "表列缺省值",
+              "board_material": "环氧树脂覆铜箔板",
+              "package_material": "塑料",
+              "temperature_span_method": "表列缺省值",
+              "thermal_resistance_C_per_W": 12.0,
+              "power_W": 0.4,
+              "cycles_per_hour": 0.1,
+              "design_life_h": 15000
+            },
+            {
+              "distance_mm": 11.0,
+              "lead_structure": "BGA",
+              "joint_height_mm": 0.35,
+              "cte_method": "表列缺省值",
+              "board_material": "环氧树脂覆铜箔板",
+              "package_material": "塑料",
+              "temperature_span_method": "表列缺省值",
+              "thermal_resistance_C_per_W": 8.0,
+              "power_W": 0.8,
+              "cycles_per_hour": 0.1,
+              "design_life_h": 15000
+            }
+          ]
+        },
+        "reference": "5.15.3 SMT互连；同时评估鸥翼型引线与BGA封装并取最薄弱最大值。",
+        "identifier": "8a49f7a5-4a86-4576-9d18-b92b7e68054c",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产SMT互连（非工作详细）",
+            "parameters": {
+              "connections": [
+                {
+                  "cte_method": "表列缺省值",
+                  "board_material": "环氧树脂覆铜箔板",
+                  "package_material": "塑料",
+                  "lead_structure": "鸥翼型引线",
+                  "distance_mm": 8.5,
+                  "temperature_span_C": 55.0,
+                  "cycles_per_hour": 0.1,
+                  "design_life_h": 15000.0
+                },
+                {
+                  "cte_method": "表列缺省值",
+                  "board_material": "环氧树脂覆铜箔板",
+                  "package_material": "塑料",
+                  "lead_structure": "BGA",
+                  "joint_height_mm": 0.35,
+                  "distance_mm": 11.0,
+                  "temperature_span_C": 55.0,
+                  "cycles_per_hour": 0.1,
+                  "design_life_h": 15000.0
+                }
+              ]
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "name": "地面良好 GB @ 25℃",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "0fdbeacf-90f6-425f-8601-d49eb7fae9dc",
+        "enabled": true
+      },
+      {
+        "name": "一般地面固定 GF1 @ 55℃",
+        "environment": "GF1",
+        "ambient_temperature_C": 55,
+        "identifier": "f748d082-9944-4f7f-9a9d-8e6da4b1f786",
+        "enabled": true
+      },
+      {
+        "name": "战斗机座舱 AIF @ 70℃",
+        "environment": "AIF",
+        "ambient_temperature_C": 70,
+        "identifier": "2d6a807a-696d-44a6-9183-9badfd60af83",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "working",
+    "analysis": {
+      "version": 1,
+      "mission": {
+        "basis": "duration",
+        "phases": [
+          {
+            "name": "一般地面固定 GF1 @ 55℃（工作）",
+            "state": "working",
+            "duration_hours": "2500",
+            "rate": "0.357519333053559",
+            "environment": "GF1",
+            "ambient_temperature_C": "55",
+            "source": "综合工作应力法示例工程（电源伺服控制板） / 一般地面固定 GF1 @ 55℃",
+            "source_snapshot": {
+              "id": "f748d082-9944-4f7f-9a9d-8e6da4b1f786",
+              "name": "一般地面固定 GF1 @ 55℃",
+              "project_name": "综合工作应力法示例工程（电源伺服控制板）",
+              "environment": "GF1",
+              "ambient_temperature_C": 55,
+              "prediction_state": "working",
+              "rate": 0.3575193330535595,
+              "scope": "current"
+            }
+          },
+          {
+            "name": "战斗机座舱 AIF @ 70℃（工作）",
+            "state": "working",
+            "duration_hours": "500",
+            "rate": "1.98619995353836",
+            "environment": "AIF",
+            "ambient_temperature_C": "70",
+            "source": "综合工作应力法示例工程（电源伺服控制板） / 战斗机座舱 AIF @ 70℃",
+            "source_snapshot": {
+              "id": "2d6a807a-696d-44a6-9183-9badfd60af83",
+              "name": "战斗机座舱 AIF @ 70℃",
+              "project_name": "综合工作应力法示例工程（电源伺服控制板）",
+              "environment": "AIF",
+              "ambient_temperature_C": 70,
+              "prediction_state": "working",
+              "rate": 1.98619995353836,
+              "scope": "current"
+            }
+          },
+          {
+            "name": "地面良好 GB @ 25℃（非工作）",
+            "state": "nonoperating",
+            "duration_hours": "7000",
+            "rate": "0.0111220912470938",
+            "environment": "GB",
+            "ambient_temperature_C": "25",
+            "source": "综合工作应力法示例工程（电源伺服控制板） / 地面良好 GB @ 25℃",
+            "source_snapshot": {
+              "id": "0fdbeacf-90f6-425f-8601-d49eb7fae9dc",
+              "name": "地面良好 GB @ 25℃",
+              "project_name": "综合工作应力法示例工程（电源伺服控制板）",
+              "environment": "GB",
+              "ambient_temperature_C": 25,
+              "prediction_state": "nonoperating",
+              "rate": 0.011122091247093817,
+              "scope": "current"
+            }
+          }
+        ],
+        "external_sources": []
+      },
+      "bayes": {
+        "initial_rate": "0.160695165210613",
+        "prior_failures": "0.5",
+        "observations": [
+          {
+            "source": "地面环境应力筛选试验（ESS）",
+            "failures": "0",
+            "component_hours": "250000",
+            "acceleration_factor": "2.5"
+          },
+          {
+            "source": "外场台架连续考核试验",
+            "failures": "1",
+            "component_hours": "600000",
+            "acceleration_factor": "1"
+          }
+        ]
+      },
+      "failure_modes": {
+        "table": "F.1",
+        "category": "运算放大器",
+        "rate": "0.0220996438"
+      },
+      "physics": {
+        "model_id": "thermal",
+        "parameters": {
+          "parameter_source": "BGA焊点热循环试验大纲（GJB/Z 299D—2024 附录D.2.6，式D.15/D.16）",
+          "shear_strain": "0.012",
+          "mean_joint_temperature_C": "45",
+          "dwell_minutes": "15"
+        }
+      }
+    }
+  }
+}

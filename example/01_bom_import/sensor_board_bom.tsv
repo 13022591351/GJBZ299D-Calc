@@ -1,0 +1,8 @@
+序号	位号	标称值	型号	封装	数量	制造商	说明
+1	RT1	10k@25C	TH-NTC-10K	0603	1	泰华精密	负温度系数热敏电阻器 测温探头
+2	R1~R4	1k	TH-FOIL-1K0	RES-FOIL-04	4	泰华精密	精密金属箔电阻器 温漂±2ppm/℃
+3	C1, C2	220nF	TG-MKP-224	BOX-7.5MM	2	天工阻容	聚丙烯薄膜积分电容器
+4	U1	INA-333S	HY-INA-333	MSOP-8	1	华耀半导体	零漂移精密仪表模拟集成电路
+5	U2	ADC-16B	Aether-AD16S	TSSOP-16	1	AetherLogic	16位模数混合集成电路 进口
+6	G1	2-AXIS	ZK-GYRO-2A	MODULE-40	1	中科磁电	双轴压电陀螺敏感组件
+7	J1	10Pin	RL-CON-10P	HDR-1x10	1	瑞联连接	传感器线缆矩形电连接器

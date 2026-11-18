@@ -1,0 +1,514 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "混合集成电路与子电路级联示例工程",
+    "notes": "演示表40外贴微电路 SHA-256 绑定（国产混合集成电路），以及国产LC滤波器（详细法）和国产压电陀螺后部电路的同工况工程率绑定。",
+    "components": [
+      {
+        "name": "HIC1 · 多功能伺服混合集成电路",
+        "model": "国产混合集成电路",
+        "quantity": 1,
+        "parameters": {
+          "quality": "A4",
+          "substrate_area_cm2": 6.5,
+          "network_process": "薄膜",
+          "resistor_process": "薄膜电阻",
+          "film_resistor_count": 12,
+          "package_process": "薄膜",
+          "maturity": "符合相应的标准或技术条件，已稳定生产的产品",
+          "temperature_basis": "封装底座温度",
+          "hybrid_temperature_C": 65,
+          "function": "模拟",
+          "external_count_1": 2,
+          "external_count_17": 4,
+          "external_count_37": 6,
+          "external_count_44": 1
+        },
+        "reference": "外贴微电路关联 sub_mounted_microcircuits.json（表40）；外贴无源/分立器件按表40计数量。",
+        "identifier": "1f1e8b44-dfe4-41d0-95c8-b4f03957ce1f",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {
+          "mounted_ic_rate": {
+            "kind": "mounted_microcircuits",
+            "source": {
+              "file_name": "sub_mounted_microcircuits.json",
+              "sha256": "6a4d01be50775882179f4bbe63ded7a9bdabb7ed80291ded006ed35574348d3c",
+              "project": {
+                "name": "外贴微电路子工程（混合电路内部裸芯片）",
+                "notes": "依据 GJB/Z 299D—2024 条款 5.1.3 表 40 计算外贴微电路合计 ΣNDCλDC（强约束 Tc=35 ℃、πE=1、C3=0、πL=1）。",
+                "components": [
+                  {
+                    "name": "DIE_U1 · 数字逻辑裸芯片",
+                    "model": "国产普通数字集成电路",
+                    "quantity": 2,
+                    "parameters": {
+                      "technology": "MOS",
+                      "package": "密封-表面安装(LCC/SO和其他)封装",
+                      "lead_count": 24,
+                      "quality": "A4",
+                      "maturity": "稳定生产",
+                      "supply_voltage_V": 5
+                    },
+                    "reference": "CMOS数字裸芯片；3750只晶体管换算1000等效门；表40外贴约束Tc=35℃。",
+                    "identifier": "0968e34a-06ae-481f-a2a6-0adb684c8bbf",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {
+                      "gate_count": {
+                        "kind": "gate_count",
+                        "inputs": {
+                          "mode": "transistors",
+                          "technology": "CMOS",
+                          "transistors": 3750
+                        }
+                      },
+                      "junction_temperature_C": {
+                        "kind": "junction_temperature",
+                        "inputs": {
+                          "case_source": "specified",
+                          "case_temperature_C": 35.0,
+                          "resistance_source": "specified",
+                          "thermal_resistance_C_W": 35.0,
+                          "power_W": 0.2
+                        }
+                      }
+                    },
+                    "profiles": {}
+                  },
+                  {
+                    "name": "DIE_U2 · 精密运放裸芯片",
+                    "model": "国产模拟集成电路",
+                    "quantity": 1,
+                    "parameters": {
+                      "complexity": 200,
+                      "quality": "A4",
+                      "supply_voltage_V": 12,
+                      "package": "密封-扁平(FP)封装",
+                      "lead_count": 14,
+                      "maturity": "符合相应的标准或技术条件，已稳定生产的产品"
+                    },
+                    "reference": "模拟集成电路裸芯片；按表25封装热阻与功耗求结温。",
+                    "identifier": "dae4c27e-42d7-459a-98fb-04e38e9fe130",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {
+                      "junction_temperature_C": {
+                        "kind": "junction_temperature",
+                        "inputs": {
+                          "case_source": "specified",
+                          "case_temperature_C": 35.0,
+                          "resistance_source": "table25",
+                          "package": "密封器件 / 扁平封装(FP)",
+                          "power_W": 0.15
+                        }
+                      }
+                    },
+                    "profiles": {}
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "地面良好 25℃",
+                    "environment": "GB",
+                    "ambient_temperature_C": 25,
+                    "identifier": "503f6db8-e72f-4f2f-93c0-748013ddd9ed",
+                    "enabled": true
+                  },
+                  {
+                    "name": "一般固定 55℃",
+                    "environment": "GF1",
+                    "ambient_temperature_C": 55,
+                    "identifier": "9db00c52-f463-437d-9520-e4c26da56898",
+                    "enabled": true
+                  }
+                ],
+                "sort_mode": "bom",
+                "grouped": true,
+                "group_fields": [
+                  "Value",
+                  "Footprint",
+                  "Manufacturer Part Number",
+                  "model",
+                  "origin",
+                  "parameters",
+                  "stress"
+                ],
+                "visible_fields": [
+                  "index",
+                  "designators",
+                  "origin",
+                  "Value",
+                  "Footprint",
+                  "Manufacturer Part Number",
+                  "quantity",
+                  "model",
+                  "parameters",
+                  "stress",
+                  "status",
+                  "weighted",
+                  "share"
+                ],
+                "prediction_state": "working",
+                "analysis": {}
+              }
+            }
+          }
+        },
+        "profiles": {}
+      },
+      {
+        "name": "FL1 · 电源EMI滤波组件",
+        "model": "国产LC滤波器",
+        "quantity": 1,
+        "parameters": {
+          "method": "组成元器件失效率求和",
+          "source_environment": "GB",
+          "source_temperature_C": 25.0
+        },
+        "reference": "按 5.18.3 组成元器件失效率求和，关联 sub_lc_filter_circuit.json。",
+        "identifier": "49ec948a-e2cd-48a8-a212-e9422377f0f7",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {
+          "constituent_rate": {
+            "kind": "project_rate",
+            "source": {
+              "file_name": "sub_lc_filter_circuit.json",
+              "sha256": "3fd551eb83dd37a99b6d510bd7ccf5536099329e6229d45a83236ec02e272d71",
+              "project": {
+                "name": "LC滤波与调理子电路",
+                "notes": "用于国产LC滤波器（组成法）及国产压电陀螺后部电路的关联工程快照。",
+                "components": [
+                  {
+                    "name": "L_F1, L_F2 · 滤波扼流电感",
+                    "model": "国产电感器",
+                    "quantity": 2,
+                    "parameters": {
+                      "kind": "固定电感器",
+                      "insulation_class": "F",
+                      "hotspot_temperature_C": 70.0,
+                      "quality": "B1"
+                    },
+                    "reference": "LC滤波器串联电感（2只）；F级绝缘热点70℃。",
+                    "identifier": "f56ee35d-f0bc-48a8-b013-31b2047bf83e",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {},
+                    "profiles": {}
+                  },
+                  {
+                    "name": "C_F1~C_F3 · 谐振旁路电容",
+                    "model": "国产1类瓷介电容器",
+                    "quantity": 3,
+                    "parameters": {
+                      "capacitance_uF": 0.01,
+                      "mounting": "片式",
+                      "quality": "A2",
+                      "stress_ratio": 0.4
+                    },
+                    "reference": "LC滤波器1类瓷介电容（3只）；电压应力比0.4。",
+                    "identifier": "6dab06bd-3911-48f4-a709-4f8655eb3b44",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {},
+                    "profiles": {}
+                  },
+                  {
+                    "name": "R_D1, R_D2 · 阻尼金属膜电阻",
+                    "model": "国产片式膜电阻器",
+                    "quantity": 2,
+                    "parameters": {
+                      "resistance_ohm": 100.0,
+                      "film": "薄膜",
+                      "quality": "A1P"
+                    },
+                    "reference": "LC滤波阻尼匹配电阻（2只）。",
+                    "identifier": "8196680e-07e9-4415-8d03-b30a671fb759",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {},
+                    "profiles": {}
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "地面良好 25℃",
+                    "environment": "GB",
+                    "ambient_temperature_C": 25,
+                    "identifier": "6d3285d6-0f92-43ee-bda5-e6363dcfcd33",
+                    "enabled": true
+                  },
+                  {
+                    "name": "一般固定 55℃",
+                    "environment": "GF1",
+                    "ambient_temperature_C": 55,
+                    "identifier": "cffd45b3-3311-4970-a1dd-1877e8dab7c0",
+                    "enabled": true
+                  }
+                ],
+                "sort_mode": "bom",
+                "grouped": true,
+                "group_fields": [
+                  "Value",
+                  "Footprint",
+                  "Manufacturer Part Number",
+                  "model",
+                  "origin",
+                  "parameters",
+                  "stress"
+                ],
+                "visible_fields": [
+                  "index",
+                  "designators",
+                  "origin",
+                  "Value",
+                  "Footprint",
+                  "Manufacturer Part Number",
+                  "quantity",
+                  "model",
+                  "parameters",
+                  "stress",
+                  "status",
+                  "weighted",
+                  "share"
+                ],
+                "prediction_state": "working",
+                "analysis": {}
+              }
+            }
+          }
+        },
+        "profiles": {}
+      },
+      {
+        "name": "GYRO1 · 双轴压电敏感陀螺",
+        "model": "国产压电陀螺",
+        "quantity": 1,
+        "parameters": {
+          "source_environment": "GB",
+          "source_temperature_C": 25.0,
+          "axes": "双轴",
+          "beam_length_mm": 40,
+          "application": "角速度",
+          "maturity": "符合相应的标准或技术条件，已稳定生产的产品"
+        },
+        "reference": "按 5.22 式(91)计算，后部电路关联 sub_lc_filter_circuit.json 同工况预计结果。",
+        "identifier": "3ceb1f33-e757-42d0-807e-26e217990fb9",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {
+          "rear_circuit_rate": {
+            "kind": "project_rate",
+            "source": {
+              "file_name": "sub_lc_filter_circuit.json",
+              "sha256": "3fd551eb83dd37a99b6d510bd7ccf5536099329e6229d45a83236ec02e272d71",
+              "project": {
+                "name": "LC滤波与调理子电路",
+                "notes": "用于国产LC滤波器（组成法）及国产压电陀螺后部电路的关联工程快照。",
+                "components": [
+                  {
+                    "name": "L_F1, L_F2 · 滤波扼流电感",
+                    "model": "国产电感器",
+                    "quantity": 2,
+                    "parameters": {
+                      "kind": "固定电感器",
+                      "insulation_class": "F",
+                      "hotspot_temperature_C": 70.0,
+                      "quality": "B1"
+                    },
+                    "reference": "LC滤波器串联电感（2只）；F级绝缘热点70℃。",
+                    "identifier": "f56ee35d-f0bc-48a8-b013-31b2047bf83e",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {},
+                    "profiles": {}
+                  },
+                  {
+                    "name": "C_F1~C_F3 · 谐振旁路电容",
+                    "model": "国产1类瓷介电容器",
+                    "quantity": 3,
+                    "parameters": {
+                      "capacitance_uF": 0.01,
+                      "mounting": "片式",
+                      "quality": "A2",
+                      "stress_ratio": 0.4
+                    },
+                    "reference": "LC滤波器1类瓷介电容（3只）；电压应力比0.4。",
+                    "identifier": "6dab06bd-3911-48f4-a709-4f8655eb3b44",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {},
+                    "profiles": {}
+                  },
+                  {
+                    "name": "R_D1, R_D2 · 阻尼金属膜电阻",
+                    "model": "国产片式膜电阻器",
+                    "quantity": 2,
+                    "parameters": {
+                      "resistance_ohm": 100.0,
+                      "film": "薄膜",
+                      "quality": "A1P"
+                    },
+                    "reference": "LC滤波阻尼匹配电阻（2只）。",
+                    "identifier": "8196680e-07e9-4415-8d03-b30a671fb759",
+                    "bom": {},
+                    "domestic": true,
+                    "condition_rates": [],
+                    "module_source": null,
+                    "disclosure": null,
+                    "stress_variables": {},
+                    "rate_state": "working",
+                    "input_sources": {},
+                    "profiles": {}
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "地面良好 25℃",
+                    "environment": "GB",
+                    "ambient_temperature_C": 25,
+                    "identifier": "6d3285d6-0f92-43ee-bda5-e6363dcfcd33",
+                    "enabled": true
+                  },
+                  {
+                    "name": "一般固定 55℃",
+                    "environment": "GF1",
+                    "ambient_temperature_C": 55,
+                    "identifier": "cffd45b3-3311-4970-a1dd-1877e8dab7c0",
+                    "enabled": true
+                  }
+                ],
+                "sort_mode": "bom",
+                "grouped": true,
+                "group_fields": [
+                  "Value",
+                  "Footprint",
+                  "Manufacturer Part Number",
+                  "model",
+                  "origin",
+                  "parameters",
+                  "stress"
+                ],
+                "visible_fields": [
+                  "index",
+                  "designators",
+                  "origin",
+                  "Value",
+                  "Footprint",
+                  "Manufacturer Part Number",
+                  "quantity",
+                  "model",
+                  "parameters",
+                  "stress",
+                  "status",
+                  "weighted",
+                  "share"
+                ],
+                "prediction_state": "working",
+                "analysis": {}
+              }
+            }
+          }
+        },
+        "profiles": {}
+      }
+    ],
+    "conditions": [
+      {
+        "name": "地面良好 25℃",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "7a54c70d-e508-4f00-a3db-2a826a1e98a9",
+        "enabled": true
+      },
+      {
+        "name": "一般固定 55℃",
+        "environment": "GF1",
+        "ambient_temperature_C": 55,
+        "identifier": "30dbec1d-a3ae-4ef6-8218-26e370845c27",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "working",
+    "analysis": {}
+  }
+}

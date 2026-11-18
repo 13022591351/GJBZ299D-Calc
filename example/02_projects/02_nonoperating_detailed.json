@@ -1,0 +1,352 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "非工作状态详细预计示例工程（机载贮存备份组件）",
+    "notes": "依据 GJB/Z 299D—2024 附录 B.2 计算；包含地面良好 25 ℃ 与低温 -10 ℃ 贮存工况（演示温度表向 0～25 ℃ / 0 ℃ 向上取整）。",
+    "components": [
+      {
+        "name": "U1 · 存储逻辑控制芯片",
+        "model": "国产数字集成电路（非工作详细）",
+        "quantity": 2,
+        "parameters": {
+          "technology": "MOS",
+          "gate_count": 3000,
+          "package": "密封 / 表面安装 (PLCC、 LCC、SO 和其他) 封装",
+          "lead_count": 40,
+          "quality": "A4",
+          "maturity": "符合相应的标准或技术 条件，已稳定生产的产品",
+          "cycle_rate": 1
+        },
+        "reference": "附录 B.2.2.2，表 B.1、B.6～B.11；-10℃ 向上归入表 B.8 最低温档。",
+        "identifier": "095d5762-67a9-4d06-a66c-a95dfee747ec",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "U2 · 精密模拟运放",
+        "model": "国产模拟集成电路（非工作详细）",
+        "quantity": 2,
+        "parameters": {
+          "transistor_count": 200,
+          "package": "密封 / 双列直插 (DIP) 封装",
+          "lead_count": 14,
+          "quality": "A4",
+          "maturity": "符合相应的标准或技术 条件，已稳定生产的产品",
+          "cycle_rate": 1
+        },
+        "reference": "附录 B.2.2.2，表 B.3、B.6～B.11。",
+        "identifier": "f8aca66a-9b96-4f30-8555-4d9551e1d4b8",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "D1 · 电源防反整流二极管",
+        "model": "国产二极管（非工作详细）",
+        "quantity": 4,
+        "parameters": {
+          "kind": "普通二极管 / 整流二极管",
+          "quality": "A3",
+          "cycle_rate": 1,
+          "temperature_basis": "非工作环境温度"
+        },
+        "reference": "附录 B.2.4.2，表 B.19～B.23。",
+        "identifier": "631279bc-fd01-4f93-acbe-2080d69bace8",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "Q1 · 功率开关场效应管",
+        "model": "国产晶体管（非工作详细）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "硅场效应晶体管",
+          "quality": "A3",
+          "cycle_rate": 1,
+          "rated_power_W": 12.0
+        },
+        "reference": "附录 B.2.4.3，表 B.24～B.31。",
+        "identifier": "fafc18a0-997e-4082-8efe-a8a3da60b3cf",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "R1~R8 · 金属膜精密电阻",
+        "model": "国产电阻器（非工作详细）",
+        "quantity": 8,
+        "parameters": {
+          "kind": "金属膜",
+          "quality": "A1P",
+          "cycle_rate": 1
+        },
+        "reference": "附录 B.2.7，表 B.39～B.43。",
+        "identifier": "fd021cdb-b2b4-463a-85d3-b8113e0fbb8d",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "C1~C6 · 2类瓷介片式电容",
+        "model": "国产电容器（非工作详细）",
+        "quantity": 6,
+        "parameters": {
+          "kind": "瓷介电容器 / 2 类瓷介",
+          "quality": "A1P",
+          "mounting": "片式",
+          "cycle_rate": 1
+        },
+        "reference": "附录 B.2.10，表 B.52～B.57；-10℃ 归入表 B.55 低温档。",
+        "identifier": "bbbbb2f8-daa8-41b6-abec-6942bb8f4d50",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "L1 · 贮存滤波固定电感",
+        "model": "国产电感器（非工作详细）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "固定电感器",
+          "quality": "B1",
+          "cycle_rate": 1
+        },
+        "reference": "附录 B.2.11.2，表 B.58～B.61。",
+        "identifier": "0ec084e4-4ef0-42fc-8306-75a68e92763e",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "K1 · 气密密封电磁继电器",
+        "model": "国产继电器（非工作详细）",
+        "quantity": 1,
+        "parameters": {
+          "kind": "机电继电器 / 密封 / 熔焊工艺",
+          "quality": "A2"
+        },
+        "reference": "附录 B.2.12，表 B.69～B.71。",
+        "identifier": "67c643dd-785c-4d5c-bfb4-60aacf69350c",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "S1 · 面板按钮开关",
+        "model": "国产开关（非工作详细）",
+        "quantity": 1,
+        "parameters": {
+          "kind": "按钮开关",
+          "quality": "A2"
+        },
+        "reference": "附录 B.2.13，表 B.73～B.75。",
+        "identifier": "e99fb868-9d4e-413c-9ff9-62acd9dd4b25",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "J1 · 矩形印制板电连接器",
+        "model": "国产电连接器（非工作详细）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "矩形连接器、印制电路板用连接器",
+          "quality": "A1"
+        },
+        "reference": "附录 B.2.14，表 B.76～B.78。",
+        "identifier": "27ea01a7-5af1-4e21-8840-0495eba09c82",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "PCB1 · 6层多层印制板",
+        "model": "国产印制板（非工作详细）",
+        "quantity": 1,
+        "parameters": {
+          "plated_hole_count": 320,
+          "quality": "A1"
+        },
+        "reference": "附录 B.2.16.1，式 B.22，表 B.83～B.84。",
+        "identifier": "033113a6-623e-4530-b70a-8e6a26177712",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "SJ1 · 表面贴装再流焊点",
+        "model": "国产焊接点（非工作详细）",
+        "quantity": 180,
+        "parameters": {
+          "kind": "再流焊"
+        },
+        "reference": "附录 B.2.16.2，表 B.85～B.86。",
+        "identifier": "063bde09-4320-4b73-8165-2e07460c96a8",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "SMT1 · 整板SMT焊点热疲劳",
+        "model": "国产SMT互连（非工作详细）",
+        "quantity": 1,
+        "parameters": {
+          "connections": [
+            {
+              "cte_method": "表列缺省值",
+              "board_material": "环氧树脂覆铜箔板",
+              "package_material": "塑料",
+              "lead_structure": "鸥翼型引线",
+              "distance_mm": 8.5,
+              "temperature_span_C": 55.0,
+              "cycles_per_hour": 0.1,
+              "design_life_h": 15000.0
+            },
+            {
+              "cte_method": "表列缺省值",
+              "board_material": "环氧树脂覆铜箔板",
+              "package_material": "陶瓷",
+              "lead_structure": "BGA",
+              "joint_height_mm": 0.35,
+              "distance_mm": 11.0,
+              "temperature_span_C": 55.0,
+              "cycles_per_hour": 0.1,
+              "design_life_h": 15000.0
+            }
+          ]
+        },
+        "reference": "附录 B.2.16.3，式 B.24～B.25；取多类连接最薄弱最大值。",
+        "identifier": "17002b4e-667d-4ac6-9c9e-37432bafc95d",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "nonoperating",
+        "input_sources": {},
+        "profiles": {}
+      }
+    ],
+    "conditions": [
+      {
+        "name": "贮存常温 GB @ 25℃",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "6e87057d-1843-4fa0-917b-b3701079335b",
+        "enabled": true
+      },
+      {
+        "name": "低温贮存 GB @ -10℃",
+        "environment": "GB",
+        "ambient_temperature_C": -10,
+        "identifier": "9c25e35d-1d3b-4e76-946f-b8c652c653c8",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "nonoperating",
+    "analysis": {}
+  }
+}

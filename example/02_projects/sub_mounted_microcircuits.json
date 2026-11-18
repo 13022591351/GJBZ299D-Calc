@@ -1,0 +1,133 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "外贴微电路子工程（混合电路内部裸芯片）",
+    "notes": "依据 GJB/Z 299D—2024 条款 5.1.3 表 40 计算外贴微电路合计 ΣNDCλDC（强约束 Tc=35 ℃、πE=1、C3=0、πL=1）。",
+    "components": [
+      {
+        "name": "DIE_U1 · 数字逻辑裸芯片",
+        "model": "国产普通数字集成电路",
+        "quantity": 2,
+        "parameters": {
+          "technology": "MOS",
+          "package": "密封-表面安装(LCC/SO和其他)封装",
+          "lead_count": 24,
+          "quality": "A4",
+          "maturity": "稳定生产",
+          "supply_voltage_V": 5
+        },
+        "reference": "CMOS数字裸芯片；3750只晶体管换算1000等效门；表40外贴约束Tc=35℃。",
+        "identifier": "0968e34a-06ae-481f-a2a6-0adb684c8bbf",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {
+          "gate_count": {
+            "kind": "gate_count",
+            "inputs": {
+              "mode": "transistors",
+              "technology": "CMOS",
+              "transistors": 3750
+            }
+          },
+          "junction_temperature_C": {
+            "kind": "junction_temperature",
+            "inputs": {
+              "case_source": "specified",
+              "case_temperature_C": 35.0,
+              "resistance_source": "specified",
+              "thermal_resistance_C_W": 35.0,
+              "power_W": 0.2
+            }
+          }
+        },
+        "profiles": {}
+      },
+      {
+        "name": "DIE_U2 · 精密运放裸芯片",
+        "model": "国产模拟集成电路",
+        "quantity": 1,
+        "parameters": {
+          "complexity": 200,
+          "quality": "A4",
+          "supply_voltage_V": 12,
+          "package": "密封-扁平(FP)封装",
+          "lead_count": 14,
+          "maturity": "符合相应的标准或技术条件，已稳定生产的产品"
+        },
+        "reference": "模拟集成电路裸芯片；按表25封装热阻与功耗求结温。",
+        "identifier": "dae4c27e-42d7-459a-98fb-04e38e9fe130",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {
+          "junction_temperature_C": {
+            "kind": "junction_temperature",
+            "inputs": {
+              "case_source": "specified",
+              "case_temperature_C": 35.0,
+              "resistance_source": "table25",
+              "package": "密封器件 / 扁平封装(FP)",
+              "power_W": 0.15
+            }
+          }
+        },
+        "profiles": {}
+      }
+    ],
+    "conditions": [
+      {
+        "name": "地面良好 25℃",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "503f6db8-e72f-4f2f-93c0-748013ddd9ed",
+        "enabled": true
+      },
+      {
+        "name": "一般固定 55℃",
+        "environment": "GF1",
+        "ambient_temperature_C": 55,
+        "identifier": "9db00c52-f463-437d-9520-e4c26da56898",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "working",
+    "analysis": {}
+  }
+}

@@ -1,0 +1,1130 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "GJB299D-001",
+    "notes": "",
+    "components": [
+      {
+        "name": "000001",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "1a0106b8-6bb4-49e1-8802-61598c468591",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0594339174
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.1416962976
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.874913182
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产普通数字集成电路",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000002",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "8205975b-a9f1-4a71-a20b-d8875806bc38",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0220996438
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0378426438
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.17952964379999997
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产模拟集成电路",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000003",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "796940f4-bcc5-4f86-8f65-9462035ea700",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.00741676
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.01155276
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.05136176
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "进口微处理器",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000004",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "75c318d2-1be8-44ef-8f52-8202ffe33037",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0023247
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0046494
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0348705
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产双极型双管",
+          "parameter_ranges": [],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "voltage_ratio_1",
+              "label": "第 1 管电压应力比 S2",
+              "value": 0.3,
+              "source": "表 74"
+            },
+            {
+              "key": "voltage_ratio_2",
+              "label": "第 2 管电压应力比 S2",
+              "value": 0.3,
+              "source": "表 74"
+            },
+            {
+              "key": "stress_ratio_1",
+              "label": "第 1 管校正电应力比 S1",
+              "value": 0.4,
+              "source": "5.3.10，表 69"
+            },
+            {
+              "key": "stress_ratio_2",
+              "label": "第 2 管校正电应力比 S2",
+              "value": 0.3,
+              "source": "5.3.10，表 69"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000005",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "a029f04c-6088-4ade-b562-9d815b718d51",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.005995
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.01199
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.089925
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产硅场效应晶体管",
+          "parameter_ranges": [],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "校正电应力比 S",
+              "value": 0.3,
+              "source": "式（19）～（23）、表 78"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000006",
+        "model": "已知单件失效率",
+        "quantity": 2,
+        "parameters": {},
+        "reference": "",
+        "identifier": "9c964cde-11a7-4342-80b6-ff6be10a6cf3",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0006120000000000001
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0017697000000000001
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.018408000000000004
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产普通二极管",
+          "parameter_ranges": [],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "voltage_ratio",
+              "label": "反向电压应力比 S2",
+              "value": 0.4,
+              "source": "表 54"
+            },
+            {
+              "key": "stress_ratio",
+              "label": "校正电应力比 S",
+              "value": 0.3,
+              "source": "5.3.10，表 47"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000007",
+        "model": "已知单件失效率",
+        "quantity": 2,
+        "parameters": {},
+        "reference": "",
+        "identifier": "473e37e0-0717-4490-b9e8-85522e36697c",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0003996
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0008880000000000001
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.006993
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "进口普通二极管",
+          "parameter_ranges": [],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "voltage_ratio",
+              "label": "电压负荷率 SV",
+              "value": 0.4,
+              "source": "表 C.34，SV 列"
+            },
+            {
+              "key": "current_ratio",
+              "label": "电流负荷率 SI",
+              "value": 0.3,
+              "source": "表 C.34，SI 行"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000008",
+        "model": "已知单件失效率",
+        "quantity": 4,
+        "parameters": {},
+        "reference": "",
+        "identifier": "07be64fa-1749-4ac3-8365-1f805f179b5e",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 7.550399999999999e-05
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.00045676800000000003
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0020235072
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产1类瓷介电容器",
+          "parameter_ranges": [
+            {
+              "name": "电容量 C",
+              "range": "2000pF < C ≤ 0.0062μF",
+              "source": "GJB/Z 299D—2024 表 220"
+            }
+          ],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "电压应力比 S",
+              "value": 0.4,
+              "source": "表 217"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000009",
+        "model": "已知单件失效率",
+        "quantity": 2,
+        "parameters": {},
+        "reference": "",
+        "identifier": "b8b3ab90-a5b6-4c9c-8b2b-57081fdfc267",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.00014102399999999998
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.00042631680000000004
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0012156144000000002
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产2类瓷介电容器",
+          "parameter_ranges": [
+            {
+              "name": "电容量 C",
+              "range": "0.082μF < C ≤ 0.27μF",
+              "source": "GJB/Z 299D—2024 表 225"
+            }
+          ],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "电压应力比 S",
+              "value": 0.5,
+              "source": "表 222"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000010",
+        "model": "已知单件失效率",
+        "quantity": 2,
+        "parameters": {},
+        "reference": "",
+        "identifier": "7f49680b-52ee-4993-b181-bf4adac3a3b8",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.000152
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0004275
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0017860000000000003
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "进口电容器",
+          "parameter_ranges": [
+            {
+              "name": "电容量 C",
+              "range": "C < 400μF",
+              "source": "GJB/Z 299D—2024 表 C.58"
+            }
+          ],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "电压应力比 S",
+              "value": 0.5,
+              "source": "表 C.62"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000011",
+        "model": "已知单件失效率",
+        "quantity": 2,
+        "parameters": {},
+        "reference": "",
+        "identifier": "194bea8c-a866-46ad-a612-fc97e57c7afb",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 3.9e-05
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.00010169999999999999
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.00032
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产金属膜电阻器",
+          "parameter_ranges": [
+            {
+              "name": "阻值 R",
+              "range": "R ≤ 100kΩ",
+              "source": "5.6.2，式（35）"
+            }
+          ],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "功率应力比 S",
+              "value": 0.5,
+              "source": "表 125、126"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000012",
+        "model": "已知单件失效率",
+        "quantity": 4,
+        "parameters": {},
+        "reference": "",
+        "identifier": "1895955b-0656-4978-a486-1673e1261468",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.00030000000000000003
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0006000000000000001
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.00198
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产片式膜电阻器",
+          "parameter_ranges": [
+            {
+              "name": "阻值 R",
+              "range": "R ≤ 100kΩ",
+              "source": "GJB/Z 299D—2024 表 158"
+            }
+          ],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000013",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "ef348683-69e0-48a7-9f74-4eb69dc5e641",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.00802
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.01563
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.05700000000000001
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产功率线绕电阻器",
+          "parameter_ranges": [
+            {
+              "name": "阻值 R",
+              "range": "R ≤ 1kΩ",
+              "source": "5.6.6，式（39）"
+            }
+          ],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "功率应力比 S",
+              "value": 0.3,
+              "source": "表 143"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000014",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "375abf61-1c01-4b23-b7bd-3b7069974f0f",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.00040500000000000003
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0007245
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0023400000000000005
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "进口电阻器",
+          "parameter_ranges": [
+            {
+              "name": "阻值 R",
+              "range": "内部",
+              "source": "GJB/Z 299D—2024 表 C.44"
+            }
+          ],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "电应力比 S",
+              "value": 0.4,
+              "source": "表 C.48"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000015",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "e6b1463e-5031-45d7-bb9e-8caf3a3aca13",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0015
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.003
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0225
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产电感器",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000016",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "f8a9ec08-cfeb-4d5e-b019-c58d0a4671dc",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.013049999999999999
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.026099999999999998
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.19574999999999998
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产变压器",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000017",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "c9723b89-1626-4b38-b4b9-318a31342790",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.00122388
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.004219425000000001
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.016000257
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产电连接器",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000018",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "8ad66db2-f34b-485b-a2ce-0ab06146acba",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.011054399999999999
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.041454
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.21291234999999997
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产电连接器",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000019",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "9294d48a-e10b-4163-837b-3ed0a303916e",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0006239999999999999
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.000936
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.0026831999999999997
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产电连接器",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000020",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "0703fdbe-af20-43c4-947f-2abcff19927c",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.0024156000000000004
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.0043848
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.019936800000000005
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产机电继电器",
+          "parameter_ranges": [],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "电应力比 S",
+              "value": 0.3,
+              "source": "表 260～265"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000021",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "cd5f1613-df85-4253-bc74-902b5f751b3d",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.004968
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.009936
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.029808
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产开关",
+          "parameter_ranges": [],
+          "stress": "标准档位",
+          "stress_bins": [
+            {
+              "key": "stress_ratio",
+              "label": "电应力比 S",
+              "value": 0.3,
+              "source": "表 285"
+            }
+          ]
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000022",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "9c065fb7-c8f0-449a-9e6d-e56f35ef6c01",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 0.013679999999999998
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 0.027359999999999995
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 0.10943999999999998
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产印制板",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000023",
+        "model": "已知单件失效率",
+        "quantity": 180,
+        "parameters": {},
+        "reference": "",
+        "identifier": "a672bbf4-2a9a-425b-a7cb-4a3ef5d63f13",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 1.275e-05
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 2.55e-05
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 7.65e-05
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产焊接点",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      },
+      {
+        "name": "000024",
+        "model": "已知单件失效率",
+        "quantity": 1,
+        "parameters": {},
+        "reference": "",
+        "identifier": "1bb6503d-2993-4227-9f55-d7726d150819",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [
+          {
+            "environment": "GB",
+            "ambient_temperature_C": 25,
+            "rate": 1.0612925749596115e-11
+          },
+          {
+            "environment": "GF1",
+            "ambient_temperature_C": 55,
+            "rate": 1.0535595026101073e-09
+          },
+          {
+            "environment": "AIF",
+            "ambient_temperature_C": 70,
+            "rate": 3.13836013727729e-09
+          }
+        ],
+        "module_source": null,
+        "disclosure": {
+          "model": "国产SMT互连",
+          "parameter_ranges": [],
+          "stress": "内部",
+          "stress_bins": []
+        },
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {}
+      }
+    ],
+    "conditions": [
+      {
+        "name": "工况001",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "5d128580-42b1-4d15-bd13-8efde64a7d7e",
+        "enabled": true
+      },
+      {
+        "name": "工况002",
+        "environment": "GF1",
+        "ambient_temperature_C": 55,
+        "identifier": "0d61473d-2aee-4039-b11a-4d85d61daf1e",
+        "enabled": true
+      },
+      {
+        "name": "工况003",
+        "environment": "AIF",
+        "ambient_temperature_C": 70,
+        "identifier": "23781338-220e-422f-9c70-09cde7731dbb",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "working",
+    "analysis": {}
+  }
+}

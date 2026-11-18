@@ -1,0 +1,117 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "GJB299D: 双平台打包发布 (Linux + Wine Windows)",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "windows": {
+                "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+            },
+            "args": [
+                "-B",
+                "scripts/build_standalone.py",
+                "--target",
+                "all"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": {
+                    "hide": false,
+                    "label": "$(tools) Build",
+                    "detail": "打包 Linux (.run + .zip) 与 Wine Windows (.exe + .zip) 至 dist/",
+                    "running": { "label": "$(sync~spin) Build…" }
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "分别生成 dist/GJB299D-Calc-Linux-x86_64(.zip) 与 dist/GJB299D-Calc-Windows-x86_64(.zip)",
+            "presentation": {
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "label": "GJB299D: 仅打包 Linux (.run + .zip)",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "-B",
+                "scripts/build_standalone.py",
+                "--target",
+                "linux"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "hide": true }
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "生成 dist/GJB299D-Calc-Linux-x86_64/ 与 .zip",
+            "presentation": {
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "label": "GJB299D: 仅打包 Windows Wine (.exe + .zip)",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "windows": {
+                "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+            },
+            "args": [
+                "-B",
+                "scripts/build_standalone.py",
+                "--target",
+                "windows"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "hide": true }
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "通过 Wine Python 生成 dist/GJB299D-Calc-Windows-x86_64/ 与 .zip",
+            "presentation": {
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "label": "GJB299D: 离线回归测试",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "windows": {
+                "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+            },
+            "args": [
+                "-B",
+                "-m",
+                "pytest",
+                "-q",
+                "-p",
+                "no:cacheprovider"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "hide": true },
+                "env": {
+                    "QT_QPA_PLATFORM": "offscreen",
+                    "PYTHONDONTWRITEBYTECODE": "1"
+                }
+            },
+            "group": "test",
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,607 @@
+{
+  "format": "GJB299D-Project",
+  "version": 1,
+  "revision": 1,
+  "project": {
+    "name": "早期方案计数法示例工程（中继控制单元）",
+    "notes": "方案论证阶段计数法：国产元器件采用第 6 章工作计数与附录 B.3 非工作计数双状态；进口元器件采用附录 C.3 工作计数（非工作状态以已知单件失效率留存）。",
+    "components": [
+      {
+        "name": "U1 · 国产数字逻辑IC",
+        "model": "国产密封单片数字集成电路（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "51～100 / MOS",
+          "quality": "A4",
+          "maturity": "符合相应的标准或技术条件，已稳定生产的产品"
+        },
+        "reference": "第6章表356；非工作状态对应附录B.3表B.121。",
+        "identifier": "7abee9c1-d849-485c-ae4e-8aa8a862f702",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产密封单片数字集成电路（非工作计数）",
+            "parameters": {
+              "kind": "51～100 / MOS",
+              "quality": "A4"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "U2 · 国产模拟运放IC",
+        "model": "国产单片双极、MOS模拟电路（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "21～50 / 密封",
+          "quality": "A4",
+          "maturity": "符合相应的标准或技术条件，已稳定生产的产品"
+        },
+        "reference": "第6章表361；非工作状态对应附录B.3表B.125。",
+        "identifier": "a3b2fba6-c3fd-416f-bbbd-2af4cf5f89fe",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产单片双极、MOS模拟电路（非工作计数）",
+            "parameters": {
+              "kind": "21～50 / 密封",
+              "quality": "A4"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "Q1, Q2 · 功率MOS管",
+        "model": "国产半导体分立器件（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "晶体管 / 硅场效应",
+          "group6_quality": "A4"
+        },
+        "reference": "第6章表370；非工作状态对应附录B.3表B.130。",
+        "identifier": "02ada3dc-e474-4289-ad35-2bcbf8970b9a",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产半导体分立器件（非工作计数）",
+            "parameters": {
+              "kind": "硅场效应晶体管",
+              "group6_quality": "A4"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "D1~D4 · 整流二极管",
+        "model": "国产半导体分立器件（工作计数）",
+        "quantity": 4,
+        "parameters": {
+          "kind": "二极管 / 普通二极管 / 整流",
+          "group1_quality": "A3"
+        },
+        "reference": "第6章表370；非工作状态对应附录B.3表B.130。",
+        "identifier": "ed48f586-3f97-423f-b02a-36f91270f236",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产半导体分立器件（非工作计数）",
+            "parameters": {
+              "kind": "普通二极管 / 整流",
+              "group1_quality": "A3"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "R1~R12 · 片式膜电阻",
+        "model": "国产电阻器（工作计数）",
+        "quantity": 12,
+        "parameters": {
+          "kind": "片式膜电阻",
+          "group8_quality": "A1P"
+        },
+        "reference": "第6章表373；非工作状态对应附录B.3表B.133。",
+        "identifier": "418a365e-a079-419b-9efc-274402e030cd",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电阻器（非工作计数）",
+            "parameters": {
+              "kind": "片式膜电阻",
+              "group8_quality": "A1P"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "C1~C10 · 2类瓷介电容",
+        "model": "国产电容器（工作计数）",
+        "quantity": 10,
+        "parameters": {
+          "kind": "2类瓷介电容器",
+          "group4_quality": "A1P"
+        },
+        "reference": "第6章表376；非工作状态对应附录B.3表B.136。",
+        "identifier": "3e6a658a-b90e-4a06-9617-0263de80f377",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电容器（非工作计数）",
+            "parameters": {
+              "kind": "瓷介电容器 / 2类瓷介",
+              "group3_quality": "A1P"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "L1, L2 · 片式电感",
+        "model": "国产感性元件（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "片式电感器",
+          "group2_quality": "A2"
+        },
+        "reference": "第6章表377；非工作状态对应附录B.3表B.137。",
+        "identifier": "3540f45b-a009-457b-9cc5-fab2c34869bc",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产感性元件（非工作计数）",
+            "parameters": {
+              "kind": "片式电感器",
+              "group2_quality": "A2"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "K1 · 密封中功率继电器",
+        "model": "国产继电器（工作计数）",
+        "quantity": 1,
+        "parameters": {
+          "kind": "机电继电器 / 中功率",
+          "group1_quality": "A2"
+        },
+        "reference": "第6章表378；非工作状态对应附录B.3表B.138。",
+        "identifier": "3689c0a8-54ba-4e07-b1ce-6a8f485299f6",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产继电器（非工作计数）",
+            "parameters": {
+              "kind": "机电继电器 / 密封 / 熔焊",
+              "group1_quality": "A2"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "S1 · 微动控制开关",
+        "model": "国产开关（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "微动开关",
+          "quality": "A2"
+        },
+        "reference": "第6章表379；非工作状态对应附录B.3表B.139。",
+        "identifier": "32ab0154-ffb3-4a10-b11b-c87b6d92d75b",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产开关（非工作计数）",
+            "parameters": {
+              "kind": "微动开关",
+              "quality": "A2"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "J1 · 印制板低频连接器",
+        "model": "国产电连接器（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "低频连接器 / 印制电路板Ⅰ",
+          "quality": "A1"
+        },
+        "reference": "第6章表380；非工作状态对应附录B.3表B.140。",
+        "identifier": "035226da-943f-42fa-a362-34d4eab13047",
+        "bom": {},
+        "domestic": true,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "国产电连接器（非工作计数）",
+            "parameters": {
+              "kind": "矩形连接器、印制电路板用连接器",
+              "quality": "A1"
+            },
+            "condition_rates": [],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "U3 · 进口数字控制芯片",
+        "model": "进口密封单片数字集成电路（工作计数）",
+        "quantity": 1,
+        "parameters": {
+          "kind": "501～1000 / MOS",
+          "quality": "B"
+        },
+        "reference": "附录C.3表C.110；非工作状态按经验已知率录入。",
+        "identifier": "cd8805e7-a8d0-47f1-a106-abcd5da27bee",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.0005
+              },
+              {
+                "environment": "GM1",
+                "ambient_temperature_C": 45,
+                "rate": 0.0022
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "D5, D6 · 进口瞬态抑制二极管",
+        "model": "进口半导体分立器件（工作计数）",
+        "quantity": 2,
+        "parameters": {
+          "kind": "二极管 / 普通二极管 / 瞬态抑制",
+          "quality": "JANTX"
+        },
+        "reference": "附录C.3表C.123；非工作状态按经验已知率录入。",
+        "identifier": "85ae80b4-2b2b-4dc6-a04e-01e81f33e082",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00015
+              },
+              {
+                "environment": "GM1",
+                "ambient_temperature_C": 45,
+                "rate": 0.0006
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "R13~R16 · 进口片式膜电阻",
+        "model": "进口电阻器（工作计数）",
+        "quantity": 4,
+        "parameters": {
+          "kind": "片式膜电阻",
+          "quality": "M"
+        },
+        "reference": "附录C.3表C.126；非工作状态按经验已知率录入。",
+        "identifier": "e1a136d9-fb59-4661-97bd-7ab2622b2e8a",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00015
+              },
+              {
+                "environment": "GM1",
+                "ambient_temperature_C": 45,
+                "rate": 0.0006
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "C11~C14 · 进口瓷介电容",
+        "model": "进口电容器（工作计数）",
+        "quantity": 4,
+        "parameters": {
+          "kind": "瓷介电容器",
+          "quality": "M"
+        },
+        "reference": "附录C.3表C.129；非工作状态按经验已知率录入。",
+        "identifier": "bc88936a-3dc8-4e21-8b50-572e202f4b0e",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00015
+              },
+              {
+                "environment": "GM1",
+                "ambient_temperature_C": 45,
+                "rate": 0.0006
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      },
+      {
+        "name": "L3 · 进口固定电感器",
+        "model": "进口感性元件（工作计数）",
+        "quantity": 1,
+        "parameters": {
+          "kind": "电感器 / 固定电感器",
+          "group1_quality": "M"
+        },
+        "reference": "附录C.3表C.130；非工作状态按经验已知率录入。",
+        "identifier": "2ff1b9c1-fdcd-4544-8290-85b126ad0318",
+        "bom": {},
+        "domestic": false,
+        "condition_rates": [],
+        "module_source": null,
+        "disclosure": null,
+        "stress_variables": {},
+        "rate_state": "working",
+        "input_sources": {},
+        "profiles": {
+          "nonoperating": {
+            "model": "已知单件失效率",
+            "parameters": {},
+            "condition_rates": [
+              {
+                "environment": "GB",
+                "ambient_temperature_C": 25,
+                "rate": 0.00015
+              },
+              {
+                "environment": "GM1",
+                "ambient_temperature_C": 45,
+                "rate": 0.0006
+              }
+            ],
+            "module_source": null,
+            "disclosure": null,
+            "stress_variables": {},
+            "rate_state": "nonoperating",
+            "input_sources": {}
+          }
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "name": "地面良好计数 GB @ 25℃",
+        "environment": "GB",
+        "ambient_temperature_C": 25,
+        "identifier": "41ad265f-72d6-412c-a682-c4bc5943dae8",
+        "enabled": true
+      },
+      {
+        "name": "平稳地面移动 GM1 @ 45℃",
+        "environment": "GM1",
+        "ambient_temperature_C": 45,
+        "identifier": "50c0ff93-074e-4f98-83ce-cc722f29e0ed",
+        "enabled": true
+      }
+    ],
+    "sort_mode": "bom",
+    "grouped": true,
+    "group_fields": [
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "model",
+      "origin",
+      "parameters",
+      "stress"
+    ],
+    "visible_fields": [
+      "index",
+      "designators",
+      "origin",
+      "Value",
+      "Footprint",
+      "Manufacturer Part Number",
+      "quantity",
+      "model",
+      "parameters",
+      "stress",
+      "status",
+      "weighted",
+      "share"
+    ],
+    "prediction_state": "working",
+    "analysis": {}
+  }
+}

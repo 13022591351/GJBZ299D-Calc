@@ -1,0 +1,16 @@
+.venv/
+/.wine-win64/
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+/dist/
+.pytest_cache/
+.ruff_cache/
+/GJB299D-Calc
+/*.run
+/*.bin
+/*.exe
+.*.autosave.json
+.*.lock
+.*.tmp
