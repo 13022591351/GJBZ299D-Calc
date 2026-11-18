@@ -137,9 +137,27 @@ python3 -m venv .venv
 # 静态代码检查
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/ruff check --no-cache src tests main.py scripts
 
-# 全量离线测试（202 项：含模型黄金真值、约束联动、I/O 边界、BOM 解析、示例套件、UI 覆盖与性能/并发压力测试）
+# 全量离线测试（208 项：含模型黄金真值、约束联动、I/O 边界、BOM 解析、示例套件、UI 覆盖、Gitee 同步与性能/并发压力测试）
 env -u DISPLAY -u WAYLAND_DISPLAY QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q -p no:cacheprovider
 ```
+
+### 5. GitHub -> Gitee 自动同步说明（可选）
+
+仓库已内置 [sync-gitee.yml](.github/workflows/sync-gitee.yml) 与 [sync_gitee_release.py](scripts/sync_gitee_release.py)，默认策略为**云端仅秒级同步文本，大附件推荐本机直传**：
+
+- **GitHub Actions 自动同步**：推送 `main` / `v*` 标签或发布/编辑 GitHub Release 时，自动同步代码、标签以及 Release 标题与说明文本（源代码 `.zip` / `.tar.gz` 压缩包由 GitHub 与 Gitee 各自根据 Tag 自动生成，且更新 Release 说明时不会删除 Gitee 上已有的二进制附件）。
+- **大体积二进制包（如 `.zip` 安装包）**：可在本地打包后使用国内网络直传（十秒级完成），或在 GitHub **Actions -> Sync to Gitee -> Run workflow** 手动触发时显式勾选 `sync_assets`：
+
+```bash
+GITEE_TOKEN="<你的Gitee私人令牌>" .venv/bin/python -B scripts/sync_gitee_release.py \
+  --owner topstar_1 --repo GJBZ299D-Calc --tag v1.0 --assets-dir dist
+```
+
+在 GitHub 仓库 **Settings -> Secrets and variables -> Actions** 配置以下 Secret 后即可启用 Actions 自动同步：
+
+- **`GITEE_TOKEN`（必填）**：在 Gitee **个人设置 -> 安全设置 -> 私人令牌** 生成并勾选 `projects` 权限的令牌（企业仓库需确保该账号具备仓库写权限）。
+- **`GITEE_USERNAME`（可选）**：生成上述令牌的 Gitee 个人登录用户名（不填时 HTTPS Git 推送默认使用 `oauth2`）。
+- **`GITEE_SSH_PRIVATE_KEY`（可选）**：若 Gitee 企业版策略限制 HTTPS 令牌推送代码，可配置具备仓库写权限的账户 SSH 私钥用于 `git push`，Release 仍通过 `GITEE_TOKEN` 调用 OpenAPI v5 同步。
 
 ---
 
@@ -147,6 +165,9 @@ env -u DISPLAY -u WAYLAND_DISPLAY QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTEC
 
 ```text
 GJBZ299D-Calc/
+├── .github/
+│   └── workflows/
+│       └── sync-gitee.yml         # GitHub Actions 自动同步代码、标签与 Release 至 Gitee
 ├── main.py                        # 桌面应用启动入口
 ├── pyproject.toml                 # 项目元数据与工具链配置（动态读取 src.__version__）
 ├── requirements.txt               # 运行时依赖清单
@@ -160,7 +181,8 @@ GJBZ299D-Calc/
 │   └── GJB299D-Calc.spec          # PyInstaller 单文件打包配置
 ├── picture/                       # README 界面预览截图与项目 Logo
 ├── scripts/
-│   └── build_standalone.py        # Linux + Wine Windows 双平台离线打包脚本
+│   ├── build_standalone.py        # Linux + Wine Windows 双平台离线打包脚本
+│   └── sync_gitee_release.py      # Gitee OpenAPI v5 Release 与大文件附件同步脚本
 ├── standard/                      # GJB/Z 299D—2024 标准文本/PDF 参考源件（仅研发查证，不随包分发）
 ├── src/
 │   ├── assets/                    # 应用图标（.ico/.png/.svg）及表格勾选 SVG 资源

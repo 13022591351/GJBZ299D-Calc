@@ -1,0 +1,237 @@
+name: Sync to Gitee
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  release:
+    types:
+      - published
+      - edited
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '需要同步的 Release 标签（如 v1.0；留空则仅同步分支与标签）'
+        required: false
+        default: 'v1.0'
+        type: string
+      sync_release:
+        description: '同步 GitHub Release 标题与说明文本到 Gitee（默认仅文本）'
+        required: false
+        default: true
+        type: boolean
+      sync_assets:
+        description: '同时通过 GitHub Runner 上传二进制附件（大文件推荐在本机直传，默认关闭）'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-gitee-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.event_name != 'release' || github.event.release.draft != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GITEE_OWNER: ${{ vars.GITEE_OWNER || 'topstar_1' }}
+      GITEE_REPO: ${{ vars.GITEE_REPO || 'GJBZ299D-Calc' }}
+
+    steps:
+      - name: Check configuration and credentials
+        id: config
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_REF: ${{ github.ref }}
+          EVENT_REF_TYPE: ${{ github.ref_type }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || '' }}
+          INPUT_TAG: ${{ inputs.tag || '' }}
+          INPUT_SYNC_RELEASE: ${{ inputs.sync_release }}
+          INPUT_SYNC_ASSETS: ${{ inputs.sync_assets }}
+          HAS_GITEE_TOKEN: ${{ secrets.GITEE_TOKEN != '' }}
+          HAS_GITEE_SSH_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY != '' }}
+        run: |
+          set -euo pipefail
+
+          TARGET_TAG=""
+          SHOULD_SYNC_RELEASE="false"
+          SHOULD_SYNC_ASSETS="false"
+
+          case "$EVENT_NAME" in
+            release)
+              TARGET_TAG="$RELEASE_TAG"
+              SHOULD_SYNC_RELEASE="true"
+              ;;
+            workflow_dispatch)
+              TARGET_TAG="$(printf '%s' "$INPUT_TAG" | xargs)"
+              if [ "$INPUT_SYNC_RELEASE" = "true" ] && [ -n "$TARGET_TAG" ]; then
+                SHOULD_SYNC_RELEASE="true"
+                if [ "$INPUT_SYNC_ASSETS" = "true" ]; then
+                  SHOULD_SYNC_ASSETS="true"
+                fi
+              elif [ "$INPUT_SYNC_RELEASE" = "true" ]; then
+                echo "未填写 tag，本次仅同步分支与标签到 Gitee。"
+              fi
+              ;;
+            push)
+              if [ "$EVENT_REF_TYPE" = "tag" ]; then
+                TARGET_TAG="${EVENT_REF#refs/tags/}"
+              fi
+              ;;
+          esac
+
+          if [ "$SHOULD_SYNC_RELEASE" = "true" ] && [ "$HAS_GITEE_TOKEN" != "true" ]; then
+            echo "::error::缺少 GitHub Secret: GITEE_TOKEN。请在 Gitee 个人设置->安全设置->私人令牌 生成勾选 projects 权限的令牌，并在 GitHub Secrets 中配置 GITEE_TOKEN。"
+            exit 1
+          fi
+
+          CAN_GIT_PUSH="false"
+          if [ "$HAS_GITEE_SSH_KEY" = "true" ] || [ "$HAS_GITEE_TOKEN" = "true" ]; then
+            CAN_GIT_PUSH="true"
+          fi
+
+          if [ "$CAN_GIT_PUSH" != "true" ]; then
+            if [ "$EVENT_NAME" = "push" ]; then
+              echo "::notice::尚未配置 GITEE_TOKEN（或 GITEE_SSH_PRIVATE_KEY），跳过 Gitee 自动镜像同步。配置 Secrets 后将自动生效。"
+              echo "run_sync=false" >> "$GITHUB_OUTPUT"
+              echo "should_sync_release=false" >> "$GITHUB_OUTPUT"
+              echo "should_sync_assets=false" >> "$GITHUB_OUTPUT"
+              echo "target_tag=" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::缺少 Gitee 推送凭据，请在 GitHub Secrets 中配置 GITEE_TOKEN（或 GITEE_SSH_PRIVATE_KEY）。"
+            exit 1
+          fi
+
+          echo "run_sync=true" >> "$GITHUB_OUTPUT"
+          echo "should_sync_release=$SHOULD_SYNC_RELEASE" >> "$GITHUB_OUTPUT"
+          echo "should_sync_assets=$SHOULD_SYNC_ASSETS" >> "$GITHUB_OUTPUT"
+          echo "target_tag=$TARGET_TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout repository
+        if: steps.config.outputs.run_sync == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push branches and tags to Gitee
+        if: steps.config.outputs.run_sync == 'true'
+        env:
+          TARGET_TAG: ${{ steps.config.outputs.target_tag }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITEE_AUTH_USER: ${{ secrets.GITEE_USERNAME || 'oauth2' }}
+          GITEE_SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+          GIT_TERMINAL_PROMPT: '0'
+        run: |
+          set -euo pipefail
+
+          ASKPASS_SCRIPT=""
+          SSH_TMP_DIR=""
+          cleanup() {
+            if [ -n "$ASKPASS_SCRIPT" ]; then
+              rm -f "$ASKPASS_SCRIPT"
+            fi
+            if [ -n "$SSH_TMP_DIR" ] && [ -d "$SSH_TMP_DIR" ]; then
+              rm -f "$SSH_TMP_DIR/id_gitee" "$SSH_TMP_DIR/known_hosts"
+              rmdir "$SSH_TMP_DIR" 2>/dev/null || true
+            fi
+          }
+          trap cleanup EXIT
+
+          git fetch origin "+refs/heads/main:refs/remotes/origin/main" --tags --force
+
+          if [ -n "$GITEE_SSH_PRIVATE_KEY" ]; then
+            SSH_TMP_DIR="$(mktemp -d "$RUNNER_TEMP/gitee-ssh.XXXXXX")"
+            chmod 700 "$SSH_TMP_DIR"
+            KEY_FILE="$SSH_TMP_DIR/id_gitee"
+            KNOWN_HOSTS="$SSH_TMP_DIR/known_hosts"
+            printf '%s\n' "$GITEE_SSH_PRIVATE_KEY" > "$KEY_FILE"
+            chmod 600 "$KEY_FILE"
+            ssh-keyscan -T 15 -H gitee.com > "$KNOWN_HOSTS"
+            if [ ! -s "$KNOWN_HOSTS" ]; then
+              echo "::error::Failed to obtain SSH host key for gitee.com."
+              exit 1
+            fi
+            export GIT_SSH_COMMAND="ssh -i $KEY_FILE -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$KNOWN_HOSTS"
+            REMOTE_URL="git@gitee.com:${GITEE_OWNER}/${GITEE_REPO}.git"
+          else
+            ASKPASS_SCRIPT="$(mktemp "$RUNNER_TEMP/gitee-askpass.XXXXXX")"
+            cat <<'EOF' > "$ASKPASS_SCRIPT"
+          #!/bin/sh
+          case "$1" in
+            *Username*|*username*) printf '%s\n' "${GITEE_AUTH_USER:-oauth2}" ;;
+            *Password*|*password*) printf '%s\n' "${GITEE_TOKEN}" ;;
+            *) exit 1 ;;
+          esac
+          EOF
+            chmod 700 "$ASKPASS_SCRIPT"
+            export GIT_ASKPASS="$ASKPASS_SCRIPT"
+            export GITEE_AUTH_USER
+            export GITEE_TOKEN
+            REMOTE_URL="https://gitee.com/${GITEE_OWNER}/${GITEE_REPO}.git"
+          fi
+
+          git push "$REMOTE_URL" "refs/remotes/origin/main:refs/heads/main"
+          if [ -n "$TARGET_TAG" ]; then
+            git fetch origin "refs/tags/${TARGET_TAG}:refs/tags/${TARGET_TAG}" --force
+            git push "$REMOTE_URL" "refs/tags/${TARGET_TAG}:refs/tags/${TARGET_TAG}"
+          else
+            git push "$REMOTE_URL" --tags
+          fi
+
+      - name: Set up Python
+        if: steps.config.outputs.run_sync == 'true' && steps.config.outputs.should_sync_release == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync GitHub Release text (and optional assets) to Gitee
+        if: steps.config.outputs.run_sync == 'true' && steps.config.outputs.should_sync_release == 'true'
+        env:
+          TARGET_TAG: ${{ steps.config.outputs.target_tag }}
+          SHOULD_SYNC_ASSETS: ${{ steps.config.outputs.should_sync_assets }}
+          GH_TOKEN: ${{ github.token }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          META_JSON="$(mktemp "$RUNNER_TEMP/release-meta.XXXXXX.json")"
+          ASSETS_DIR="$(mktemp -d "$RUNNER_TEMP/release-assets.XXXXXX")"
+          cleanup_release_tmp() {
+            rm -f "$META_JSON"
+            python3 -c 'import shutil, sys; shutil.rmtree(sys.argv[1], ignore_errors=True)' "$ASSETS_DIR"
+          }
+          trap cleanup_release_tmp EXIT
+
+          gh release view "$TARGET_TAG" \
+            --repo "${{ github.repository }}" \
+            --json tagName,name,body,isPrerelease,isDraft,targetCommitish,assets \
+            > "$META_JSON"
+
+          if [ "$SHOULD_SYNC_ASSETS" = "true" ]; then
+            ASSET_COUNT="$(python3 -c 'import json, sys; print(len(json.load(open(sys.argv[1], encoding="utf-8")).get("assets", [])))' "$META_JSON")"
+            if [ "$ASSET_COUNT" -gt 0 ]; then
+              gh release download "$TARGET_TAG" \
+                --repo "${{ github.repository }}" \
+                --dir "$ASSETS_DIR" \
+                --clobber
+            fi
+            python3 scripts/sync_gitee_release.py \
+              --owner "$GITEE_OWNER" \
+              --repo "$GITEE_REPO" \
+              --metadata-json "$META_JSON" \
+              --assets-dir "$ASSETS_DIR"
+          else
+            python3 scripts/sync_gitee_release.py \
+              --owner "$GITEE_OWNER" \
+              --repo "$GITEE_REPO" \
+              --metadata-json "$META_JSON" \
+              --skip-assets
+          fi
